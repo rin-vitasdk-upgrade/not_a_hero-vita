@@ -433,12 +433,6 @@ int pthread_equal_soloader(const pthread_t *t1, const pthread_t *t2)
 	return pthread_equal(*t1, *t2);
 }
 
-pthread_t *pthread_self_soloader()
-{
-	s_pthreadSelfRet = pthread_self();
-	return &s_pthreadSelfRet;
-}
-
 #ifndef MAX_TASK_COMM_LEN
 #define MAX_TASK_COMM_LEN 16
 #endif
@@ -1079,7 +1073,7 @@ static so_default_dynlib default_dynlib[] = {
 	{ "pthread_mutexattr_setpshared", (uintptr_t) &pthread_mutexattr_setpshared_soloader},
 	{ "pthread_mutexattr_settype", (uintptr_t) &pthread_mutexattr_settype_soloader},
 	{ "pthread_once", (uintptr_t)&pthread_once },
-	{ "pthread_self", (uintptr_t) &pthread_self_soloader },
+	{ "pthread_self", (uintptr_t) &pthread_self },
 	{ "pthread_setschedparam", (uintptr_t) &pthread_setschedparam_soloader },
 	{ "pthread_setspecific", (uintptr_t)&pthread_setspecific },
 	{ "sched_get_priority_min", (uintptr_t)&ret0 },
