@@ -39,19 +39,21 @@ target_link_libraries(notahero
   webp
   jpeg
   mikmod
-  z
-  m
-  stdc++
   opensles
   sndfile
+  vorbisfile
+  opusfile
+  modplug
+  opus
   vorbis
   vorbisenc
-  vorbisfile
   ogg
   FLAC
   openal
-  imgui
   vitaGL
+  z
+  m
+  stdc++
   vitashark
   SceShaccCgExt
   mathneon

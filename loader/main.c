@@ -3191,7 +3191,9 @@ int main(int argc, char *argv[]) {
 	so_relocate(&main_mod);
 	so_resolve(&main_mod, default_dynlib, sizeof(default_dynlib), 0);
 
-	vglInitExtended(0, SCREEN_W, SCREEN_H, MEMORY_VITAGL_THRESHOLD_MB * 1024 * 1024, SCE_GXM_MULTISAMPLE_NONE);
+	vglUseTripleBuffering(GL_FALSE);
+	vglSetParamBufferSize(4 * 1024 * 1024);
+	vglInitWithCustomThreshold(0, SCREEN_W, SCREEN_H, MEMORY_VITAGL_THRESHOLD_MB * 1024 * 1024, 0, 0, 0, SCE_GXM_MULTISAMPLE_NONE);
 	
 	// Initing trophy system
 	SceIoStat st;
