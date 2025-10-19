@@ -381,7 +381,7 @@ int pthread_attr_init_soloader(pthread_attr_t **attr)
 
 int pthread_attr_setdetachstate_soloader(pthread_attr_t **attr, int state)
 {
-	return pthread_attr_setdetachstate(*attr, state);
+	return pthread_attr_setdetachstate(*attr, !state);
 }
 
 int pthread_attr_setstacksize_soloader(pthread_attr_t **attr, size_t stacksize)
@@ -3150,7 +3150,7 @@ void *pthread_main(void *arg) {
 }
 
 int main(int argc, char *argv[]) {
-	sceSysmoduleLoadModule(SCE_SYSMODULE_RAZOR_CAPTURE);
+	//sceSysmoduleLoadModule(SCE_SYSMODULE_RAZOR_CAPTURE);
 	//SceUID crasher_thread = sceKernelCreateThread("crasher", crasher, 0x40, 0x1000, 0, 0, NULL);
 	//sceKernelStartThread(crasher_thread, 0, NULL);	
 	
